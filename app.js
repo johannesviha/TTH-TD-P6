@@ -30,7 +30,6 @@ function getRandomPhraseAsArray(arr) {
     const randomString = Math.floor(Math.random() * phrases.length);
     const randomPhrase = phrases[randomString];
     const chars = randomPhrase.split("");
-    console.log(`The random phrase selected is "${randomPhrase}"`);
     return chars;
 }
 
@@ -39,19 +38,26 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 
 // Function that adds the letters of a string to the display as list items
 function addPhraseToDisplay(arr) {
+
+    const ul = document.querySelector('#phrase ul');
+
     for (let i = 0; i < phraseArray.length; i++) {
-        const ul = document.querySelector('#phrase');
+
         const li = document.createElement("li");
         li.textContent = arr[i];
-        ul.appendChild(li);
 
         // Checks if the current character is a letter or a space
         if (/[a-zA-Z]/.test(phraseArray[i]) && phraseArray[i].trim() !== "") {
             li.className = "letter";
         } else {
+            li.className = "space";
         }
 
+        ul.appendChild(li);
+
     }
+
+
 }
 
 // Calls the addPhraseToDisplay function with the phraseArray as the argument
