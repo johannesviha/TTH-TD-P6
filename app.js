@@ -75,7 +75,7 @@ qwerty.addEventListener('click', (event) => {
         // Checks if the clicked button's text content is a letter and it hasn't been clicked before
         if (/^[a-z]$/i.test(keyPressed) && !button.classList.contains('chosen')) {
             button.classList.add('chosen');
-            button.setAttribute('disabled', 'true');
+            button.disabled = true;
             checkLetter(keyPressed);
         }
 
